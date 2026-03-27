@@ -174,8 +174,7 @@ class Sheep {
 
     const grazing = this.state === 'graze';
     const headTip = grazing ? 0.55 : 0.0;
-    const swing =
-      this.state === 'walk' ? Math.sin(this.walkTime) * 0.28 : 0;
+    const swing = this.state === 'walk' ? Math.sin(this.walkTime) * 0.28 : 0;
 
     this.drawLegs(swing);
     this.drawBody();
@@ -328,37 +327,76 @@ class BorderCollie {
     if (this.facing < 0) ctx.scale(-1, 1);
     const swing = this.state !== 'idle' ? Math.sin(this.walkTime) * 0.32 : 0;
 
-    [[-10, swing], [2, -swing], [13, swing], [21, -swing]].forEach(([lx, ph]) => {
-      ctx.save(); ctx.translate(lx, -3); ctx.rotate(ph);
+    [
+      [-10, swing],
+      [2, -swing],
+      [13, swing],
+      [21, -swing],
+    ].forEach(([lx, ph]) => {
+      ctx.save();
+      ctx.translate(lx, -3);
+      ctx.rotate(ph);
       ctx.fillStyle = '#111';
-      ctx.beginPath(); ctx.roundRect(-2.5, 0, 5, 17, 1); ctx.fill();
+      ctx.beginPath();
+      ctx.roundRect(-2.5, 0, 5, 17, 1);
+      ctx.fill();
       ctx.restore();
     });
     ctx.fillStyle = '#1A1A1A';
-    ctx.beginPath(); ctx.ellipse(5, -14, 23, 10, -0.1, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(5, -14, 23, 10, -0.1, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = '#EFEFEF';
-    ctx.beginPath(); ctx.ellipse(18, -10, 8, 6, 0.3, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(18, -10, 8, 6, 0.3, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = '#E0E0E0';
-    ctx.beginPath(); ctx.ellipse(4, -6, 9, 4, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.strokeStyle = '#1A1A1A'; ctx.lineWidth = 4; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(-20, -12); ctx.quadraticCurveTo(-32, -30, -24, -36); ctx.stroke();
-    ctx.strokeStyle = '#EEE'; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(-26, -32); ctx.quadraticCurveTo(-28, -38, -24, -36); ctx.stroke();
-    ctx.save(); ctx.translate(28, -22);
+    ctx.beginPath();
+    ctx.ellipse(4, -6, 9, 4, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#1A1A1A';
+    ctx.lineWidth = 4;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(-20, -12);
+    ctx.quadraticCurveTo(-32, -30, -24, -36);
+    ctx.stroke();
+    ctx.strokeStyle = '#EEE';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(-26, -32);
+    ctx.quadraticCurveTo(-28, -38, -24, -36);
+    ctx.stroke();
+    ctx.save();
+    ctx.translate(28, -22);
     ctx.fillStyle = '#1A1A1A';
-    ctx.beginPath(); ctx.ellipse(0, 0, 10, 9, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 10, 9, 0, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = '#EEE';
-    ctx.beginPath(); ctx.ellipse(4, 1, 3, 5.5, 0.1, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(4, 1, 3, 5.5, 0.1, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = '#2A2A2A';
-    ctx.beginPath(); ctx.ellipse(10, 3, 6, 4, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(10, 3, 6, 4, 0, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = '#111';
-    ctx.beginPath(); ctx.arc(14, 2, 2.2, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.arc(14, 2, 2.2, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = '#4A3010';
-    ctx.beginPath(); ctx.arc(5, -3, 2.2, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.arc(5, -3, 2.2, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = 'rgba(255,255,255,0.8)';
-    ctx.beginPath(); ctx.arc(6, -4, 0.9, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.arc(6, -4, 0.9, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = '#111';
-    ctx.beginPath(); ctx.ellipse(-2, -8, 4, 7, -0.3, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(-2, -8, 4, 7, -0.3, 0, Math.PI * 2);
+    ctx.fill();
     ctx.restore();
     ctx.restore();
   }
@@ -380,8 +418,12 @@ class Shepherd {
       ? W * 0.25 + Math.random() * W * 0.55
       : W * 0.2 + Math.random() * W * 0.55;
     this.targetY = this.y;
-    this.hatColor = ['#5C3A1E', '#2C4A1E', '#3A2C5C'][Math.floor(Math.random() * 3)];
-    this.coatColor = ['#8B7355', '#6B8B55', '#7B6B45'][Math.floor(Math.random() * 3)];
+    this.hatColor = ['#5C3A1E', '#2C4A1E', '#3A2C5C'][
+      Math.floor(Math.random() * 3)
+    ];
+    this.coatColor = ['#8B7355', '#6B8B55', '#7B6B45'][
+      Math.floor(Math.random() * 3)
+    ];
   }
 
   isOffScreen() {
@@ -430,47 +472,231 @@ class Shepherd {
     if (this.facing < 0) ctx.scale(-1, 1);
     const swing = this.state === 'walk' ? Math.sin(this.walkTime) * 0.22 : 0;
 
-    ctx.save(); ctx.translate(26, -12); ctx.rotate(-0.15 + swing * 0.25);
-    ctx.strokeStyle = '#6B4423'; ctx.lineWidth = 3; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, -68); ctx.stroke();
-    ctx.beginPath(); ctx.arc(-6, -68, 6, 0, Math.PI, true); ctx.stroke();
+    ctx.save();
+    ctx.translate(26, -12);
+    ctx.rotate(-0.15 + swing * 0.25);
+    ctx.strokeStyle = '#6B4423';
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -68);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(-6, -68, 6, 0, Math.PI, true);
+    ctx.stroke();
     ctx.restore();
 
-    ctx.save(); ctx.translate(-7, -8); ctx.rotate(-swing);
+    ctx.save();
+    ctx.translate(-7, -8);
+    ctx.rotate(-swing);
     ctx.fillStyle = '#3A2C1E';
-    ctx.beginPath(); ctx.roundRect(-4, 0, 8, 30, 2); ctx.fill();
+    ctx.beginPath();
+    ctx.roundRect(-4, 0, 8, 30, 2);
+    ctx.fill();
     ctx.fillStyle = '#2A1A0C';
-    ctx.beginPath(); ctx.roundRect(-5, 26, 10, 8, 2); ctx.fill();
+    ctx.beginPath();
+    ctx.roundRect(-5, 26, 10, 8, 2);
+    ctx.fill();
     ctx.restore();
-    ctx.save(); ctx.translate(7, -8); ctx.rotate(swing);
+    ctx.save();
+    ctx.translate(7, -8);
+    ctx.rotate(swing);
     ctx.fillStyle = '#3A2C1E';
-    ctx.beginPath(); ctx.roundRect(-4, 0, 8, 30, 2); ctx.fill();
+    ctx.beginPath();
+    ctx.roundRect(-4, 0, 8, 30, 2);
+    ctx.fill();
     ctx.fillStyle = '#2A1A0C';
-    ctx.beginPath(); ctx.roundRect(-5, 26, 10, 8, 2); ctx.fill();
+    ctx.beginPath();
+    ctx.roundRect(-5, 26, 10, 8, 2);
+    ctx.fill();
     ctx.restore();
 
     ctx.fillStyle = this.coatColor;
-    ctx.beginPath(); ctx.roundRect(-14, -50, 28, 42, 4); ctx.fill();
+    ctx.beginPath();
+    ctx.roundRect(-14, -50, 28, 42, 4);
+    ctx.fill();
 
-    ctx.save(); ctx.translate(14, -44); ctx.rotate(swing * 0.5);
+    ctx.save();
+    ctx.translate(14, -44);
+    ctx.rotate(swing * 0.5);
     ctx.fillStyle = this.coatColor;
-    ctx.beginPath(); ctx.roundRect(-4, 0, 8, 24, 3); ctx.fill();
+    ctx.beginPath();
+    ctx.roundRect(-4, 0, 8, 24, 3);
+    ctx.fill();
     ctx.restore();
-    ctx.save(); ctx.translate(-14, -44); ctx.rotate(-swing * 0.5);
+    ctx.save();
+    ctx.translate(-14, -44);
+    ctx.rotate(-swing * 0.5);
     ctx.fillStyle = this.coatColor;
-    ctx.beginPath(); ctx.roundRect(-4, 0, 8, 24, 3); ctx.fill();
+    ctx.beginPath();
+    ctx.roundRect(-4, 0, 8, 24, 3);
+    ctx.fill();
     ctx.restore();
 
     ctx.fillStyle = '#C8A882';
-    ctx.beginPath(); ctx.roundRect(-5, -58, 10, 11, 2); ctx.fill();
+    ctx.beginPath();
+    ctx.roundRect(-5, -58, 10, 11, 2);
+    ctx.fill();
     ctx.fillStyle = '#D4AA82';
-    ctx.beginPath(); ctx.ellipse(0, -68, 11, 12, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(0, -68, 11, 12, 0, 0, Math.PI * 2);
+    ctx.fill();
     ctx.fillStyle = '#3A2010';
-    ctx.beginPath(); ctx.arc(6, -68, 2, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath();
+    ctx.arc(6, -68, 2, 0, Math.PI * 2);
+    ctx.fill();
 
     ctx.fillStyle = this.hatColor;
-    ctx.beginPath(); ctx.ellipse(0, -79, 16, 4, 0, 0, Math.PI * 2); ctx.fill();
-    ctx.beginPath(); ctx.roundRect(-10, -96, 20, 18, [4, 4, 0, 0]); ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(0, -79, 16, 4, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.roundRect(-10, -96, 20, 18, [4, 4, 0, 0]);
+    ctx.fill();
+
+    ctx.restore();
+  }
+}
+
+// ── Wolf ─────────────────────────────────────────────────────────────
+class Wolf {
+  constructor() {
+    this.cycleTime = Math.random() * 120000; // 랜덤 위상으로 시작
+    this.cycleDuration = 120000;
+    this.visibleDuration = 60000;
+    this.visible = false;
+    this.x = -100;
+    this.y = H * 0.62;
+    this.facing = 1;
+    this.speed = 0.55;
+    this.walkTime = 0;
+    this.targetX = W * 0.5;
+  }
+
+  reset() {
+    this.facing = -1;
+    this.x = W + 90;
+    this.y = H * (0.59 + Math.random() * 0.05);
+    this.targetX = 80 + Math.random() * (W - 160);
+    this.walkTime = 0;
+  }
+
+  update(dt) {
+    this.cycleTime += dt;
+    if (this.cycleTime >= this.cycleDuration)
+      this.cycleTime -= this.cycleDuration;
+
+    const wasVisible = this.visible;
+    this.visible = this.cycleTime >= this.cycleDuration - this.visibleDuration;
+
+    if (this.visible && !wasVisible) this.reset();
+
+    if (this.visible) {
+      const dx = this.targetX - this.x;
+      const dist = Math.abs(dx);
+      if (dist > 4) {
+        const step = this.speed * dt * 0.048;
+        this.x += (dx / dist) * step;
+        this.facing = dx > 0 ? 1 : -1;
+        this.walkTime += dt * 0.005;
+      } else {
+        // 목표 도달 시 반대편으로 빠져나가거나 새 목표
+        if (Math.random() < 0.45) {
+          this.targetX = W + 110;
+        } else {
+          this.targetX = 80 + Math.random() * (W - 160);
+        }
+      }
+    }
+  }
+
+  draw() {
+    if (!this.visible) return;
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    if (this.facing < 0) ctx.scale(-1, 1);
+    ctx.scale(0.72, 0.72);
+
+    const swing = Math.sin(this.walkTime) * 0.3;
+
+    // 다리
+    [
+      [-10, swing],
+      [0, -swing],
+      [10, swing],
+      [18, -swing],
+    ].forEach(([lx, ph]) => {
+      ctx.save();
+      ctx.translate(lx, -2);
+      ctx.rotate(ph);
+      ctx.fillStyle = '#3A3530';
+      ctx.beginPath();
+      ctx.roundRect(-3, 0, 6, 19, 1);
+      ctx.fill();
+      ctx.restore();
+    });
+
+    // 몸통
+    ctx.fillStyle = '#5A5248';
+    ctx.beginPath();
+    ctx.ellipse(2, -16, 22, 11, -0.15, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 꼬리
+    ctx.strokeStyle = '#5A5248';
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(-20, -13);
+    ctx.quadraticCurveTo(-34, -26, -28, -36);
+    ctx.stroke();
+
+    // 목
+    ctx.fillStyle = '#5A5248';
+    ctx.beginPath();
+    ctx.ellipse(20, -22, 8, 7, -0.3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // 머리
+    ctx.save();
+    ctx.translate(26, -26);
+    ctx.fillStyle = '#5A5248';
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 12, 10, 0, 0, Math.PI * 2);
+    ctx.fill();
+    // 주둥이
+    ctx.fillStyle = '#4A4540';
+    ctx.beginPath();
+    ctx.ellipse(10, 4, 8, 5, 0.2, 0, Math.PI * 2);
+    ctx.fill();
+    // 코
+    ctx.fillStyle = '#2A2020';
+    ctx.beginPath();
+    ctx.ellipse(16, 3, 3, 2.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+    // 눈
+    ctx.fillStyle = '#E8C040';
+    ctx.beginPath();
+    ctx.arc(4, -3, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = '#1A1A1A';
+    ctx.beginPath();
+    ctx.arc(5, -3, 1.4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(255,255,255,0.6)';
+    ctx.beginPath();
+    ctx.arc(6, -4, 0.7, 0, Math.PI * 2);
+    ctx.fill();
+    // 귀
+    ctx.fillStyle = '#4A4540';
+    ctx.beginPath();
+    ctx.moveTo(-4, -9);
+    ctx.lineTo(-9, -21);
+    ctx.lineTo(2, -13);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
 
     ctx.restore();
   }
@@ -505,6 +731,7 @@ sheepList = Array.from({ length: 7 }, () => {
 
 let shepherd = new Shepherd();
 const collie = new BorderCollie(shepherd);
+const wolf = new Wolf();
 
 // ── Draw scene ───────────────────────────────────────────────────────
 function drawSky() {
@@ -517,7 +744,8 @@ function drawSky() {
 }
 
 function drawSun() {
-  const sx = W * 0.84, sy = H * 0.1;
+  const sx = W * 0.84,
+    sy = H * 0.1;
   const glow = ctx.createRadialGradient(sx, sy, 20, sx, sy, 90);
   glow.addColorStop(0, 'rgba(255,235,100,0.38)');
   glow.addColorStop(1, 'rgba(255,235,100,0)');
@@ -624,8 +852,14 @@ function animate(ts) {
   collie.update(dt);
 
   sheepList.forEach((s) => s.update(dt));
+  wolf.update(dt);
 
-  const allEntities = [...sheepList, shepherd, collie];
+  const allEntities = [
+    ...sheepList,
+    shepherd,
+    collie,
+    ...(wolf.visible ? [wolf] : []),
+  ];
   allEntities.sort((a, b) => a.y - b.y);
   allEntities.forEach((e) => e.draw());
 
